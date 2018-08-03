@@ -1,0 +1,24 @@
+Git
+
+    1. change username or email in previous commits
+    - git filter-branch --env-filter 'export GIT_AUTHOR_NAME="<name>"' --tag-name-filter cat -- --branches --tags
+
+    - git filter-branch --env-filter 'export GIT_AUTHOR_EMAIL="<email>"' --tag-name-filter cat -- --branches --tags
+
+
+    2. remove complete history of a file
+    - git filter-branch --force --index-filter 'git -rm --cached --ignore-unmatch <path_to_file>' --prune-empty --tag-name-filter cat -- --all
+    - git push origin --force --all
+
+
+    3. change commits (for example commit message)
+    - git rebase -i <commit_hash_before_the_first_I_want_to_edit>
+    - mark messages with 'edit'
+    - edit
+    - git commit --amend
+    - git rebase --continue
+
+Server
+
+    1. reset incorrect password count on the server
+    - sudo pam_tally2 --user <attuid> -r 
