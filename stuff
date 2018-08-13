@@ -22,3 +22,14 @@ Server
 
     1. reset incorrect password count on the server
     - sudo pam_tally2 --user <attuid> -r 
+
+Docker
+
+    1. remove all containers
+    - docker rm -f $(docker ps -a -q)
+
+    2. remove all images
+    - docker rmi $(docker images | awk '{print $3}')
+
+    3. remove dangling volumes
+    - docker volume rm $(docker volume ls -q -f dangling=true)
