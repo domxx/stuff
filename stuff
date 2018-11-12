@@ -39,3 +39,11 @@ Docker
 
     5. start all (exited) containers
     - docker start $(docker ps -a | grep Exit | awk '{print $1}')
+
+Windows 
+
+    1. DNS Unresolved Name
+    - c/windows/cystem32/drivers/etc/hosts 
+
+    2. Config
+    - c/xampp/apache/conf/extra/httpd/vhosts.conf 
