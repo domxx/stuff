@@ -33,3 +33,9 @@ Docker
 
     3. remove dangling volumes
     - docker volume rm $(docker volume ls -q -f dangling=true)
+
+    4. remove all dangling images
+    - docker rmi $(docker images | grep none | awk '{print $3}')
+
+    5. start all (exited) containers
+    - docker start $(docker ps -a | grep Exit | awk '{print $1}')
